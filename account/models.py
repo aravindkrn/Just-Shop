@@ -54,10 +54,10 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return f"{self.name} ({self.email})"
+        return f"{self.full_name} ({self.email})"
 
     @property
-    def name(self):
+    def full_name(self):
         return f"{self.first_name} {self.last_name}".strip()
 
     def has_perm(self, perm, obj=None):

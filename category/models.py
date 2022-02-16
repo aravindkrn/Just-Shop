@@ -2,7 +2,9 @@ from django.db import models
 
 
 def category_image_upload(instance, filename):
-    return f"photos/categories/{instance.id}_{filename}"
+    ext = filename.split(".")[-1]
+    name = instance.name.replace(" ", "_")
+    return f"photos/categories/{name}.{ext}"
 
 
 class Category(models.Model):

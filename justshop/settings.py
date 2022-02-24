@@ -35,9 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'constance',
     'category',
     'account',
     'store',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR /'static'
+STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'justshop/static',
 ]
@@ -126,4 +128,47 @@ STATICFILES_DIRS = [
 # Media file configuration
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+""" Commenting as logs are not properly visible
+# Django Logging Information
+LOGGING = {
+    # Define the logging version
+    'version': 1,
+    # Enable the existing loggers
+    'disable_existing_loggers': False,
+
+    # Define the handlers
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'justshop.log',
+        },
+
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+
+    # Define the loggers
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+
+        },
+    },
+}
+"""
+
+# CONSTANCE_REDIS_CONNECTION = {
+#     'host': 'localhost',
+#     'port': 6379,
+#     'db': 0,
+# }
+
+CONSTANCE_CONFIG = {
+    'TAX_PERCENT': ('0.02', 'Tax applied during checkout'),
+}

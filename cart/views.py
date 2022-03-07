@@ -20,6 +20,7 @@ def cart(request, cart_items=None):
         total += (cart_item.product.price * cart_item.product_quantity)
         quantity += cart_item.product_quantity
     tax = 0.02 * total
+    tax = float(f"{tax:.2f}")
     grand_total = total + tax
     context = {
         'cart_items': cart_items,

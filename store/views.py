@@ -1,7 +1,11 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 from .models import Product
+from .serializers import CategorySerializer
 from category.models import Category
 
 
@@ -23,3 +27,11 @@ def product_details(request, category_slug, product_slug):
         raise Http404
     context = {'product': product}
     return render(request, 'store/product_detail.html', context)
+
+
+class CategoryList(APIView):
+
+    def get(self, request):
+        categories = Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
+        return Response(serializer.data)

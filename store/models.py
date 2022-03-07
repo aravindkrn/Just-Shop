@@ -5,12 +5,12 @@ from django.urls import reverse
 
 from category.models import Category
 
-
 CURRENCY_CHOICES = (
     ("INR", "Indian Rupee"),
     ("USD", "US Dollar"),
     ("EUR", "Euro"),
 )
+
 
 def product_image_upload(instance, filename):
     ext = filename.split(".")[-1]

@@ -173,3 +173,8 @@ LOGGING = {
 CONSTANCE_CONFIG = {
     'TAX_PERCENT': ('0.02', 'Tax applied during checkout'),
 }
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
